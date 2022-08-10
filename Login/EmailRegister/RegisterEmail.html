@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Find Your Album</title>
+<link rel="stylesheet" href="StylesheetEmailRegister.css">
+</head>
+<body>
+<div class="Container">
+    <div class="ContinueWith">
+    <h1 style="margin-top:0px; font-size: 50px; color:white">Register</h1>
+    <hr style="border-color: #141514; margin-top: -7%;">
+    <br><br><label for="email" style="font-size: 35px; color:white"><b>Email</b></label><br>
+    <input type="text" placeholder="Enter your E-mail adress" name="email" id="email" required><br><br><br>
+
+    <label for="password" style="font-size: 35px; color:white"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter your password" name="psq" id="psw" required><br><br><br>
+
+    <button type="button" id="sumbitData" name="submitData" class="registerbtn">Register</button>
+    </div>      
+</div>
+</html>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
+    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCM3kwLtFJJ3yx_iAJCM9lf0PCf53x1o2o",
+      authDomain: "findyouralbum-a0a3f.firebaseapp.com",
+      projectId: "findyouralbum-a0a3f",
+      storageBucket: "findyouralbum-a0a3f.appspot.com",
+      messagingSenderId: "127300941597",
+      appId: "1:127300941597:web:7341707a0c3053152713f4",
+      measurementId: "G-GS9T9Y97GS"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const database = getDatabase();
+
+    sumbitData.addEventListener('click', (e) => {
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('psw').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ... user.uid
+            set(ref(database, 'users/' + user.uid), {
+                email: email,
+                password: password
+            })
+                .then(() => {
+                    //succes
+                    alert('user created succesfully');
+                
+                })
+                .catch((error) => {
+                    //fail
+                    alert(error);
+                });
+                alert('user created succesfully');
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            alert(errorMessage);
+        });
+    });
+</script>

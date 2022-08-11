@@ -9,9 +9,65 @@
     <div class="ContinueWith">
         <p style="font-size:40px; margin-top: 5px; color: white; font-family:Arial, Helvetica, sans-serif;">Choose your option to continue</p>
         <a href="EmailLogin/LoginEmail.html"><button class="Account">Continue with Email</button></a>
-        <a href="GoogleLogin/LoginGoogle.html"><button class="Google">Continue with Google</button></a>
+        <button class="Google" id="sumbitData" name="submitData">Continue with Google</button>
         <a href="#"></a><button class="Guest">Continue as Guest</button></a>
     </div>      
 </div>
 </body>
 </html>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-analytics.js";
+    import { getDatabase,set,ref, update } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCM3kwLtFJJ3yx_iAJCM9lf0PCf53x1o2o",
+      authDomain: "findyouralbum-a0a3f.firebaseapp.com",
+      projectId: "findyouralbum-a0a3f",
+      storageBucket: "findyouralbum-a0a3f.appspot.com",
+      messagingSenderId: "127300941597",
+      appId: "1:127300941597:web:7341707a0c3053152713f4",
+      measurementId: "G-GS9T9Y97GS"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const database = getDatabase();
+    const provider = new GoogleAuthProvider(app);
+    sumbitData.addEventListener('click', (e) => {
+  
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('psw').value;
+  
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+  
+      alert(user.displayName);
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      alert(errorMessage);
+    });
+    });
+  </script>

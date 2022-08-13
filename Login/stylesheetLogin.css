@@ -37,8 +37,8 @@ textarea {
   }
 
 .ContinueWith {
-    height: 50%;
-    width: 15%;
+    height: 30vw;
+    width: 20vw;
     padding: 0%; 
     border-radius: 10px;
     border-color: #141514;
@@ -52,8 +52,8 @@ textarea {
 
 
 .Account {
-    width: 90%;
-    height: 10%;
+    width: 18vw;
+    height: 4vw;
     font-size: 1vw;
     color: white;
     background-color: #141514;
@@ -62,8 +62,8 @@ textarea {
 }
 
 .registerbtn {
-    width: 90%;
-    height: 10%;
+    width: 18vw;
+    height: 4vw;
     font-size: 1vw;
     color: white;
     background-color: #141514;
@@ -72,8 +72,8 @@ textarea {
 }
 
 .Guest {
-    width: 90%;
-    height: 10%;
+    width: 18vw;
+    height: 4vw;
     font-size: 1vw;
     color: white;
     background-color: #141514;

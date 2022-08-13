@@ -41,7 +41,7 @@ textarea {
     width: 60%;
     padding: 0%; 
     margin-left: auto;
-    margin-top: 30%;
+    margin-top: 27%;
     margin-right: auto;
     margin-bottom: auto;
     position:relative;
@@ -65,15 +65,17 @@ textarea {
 
 
 .blue-btn{
-  height: 64px;
-  font: normal normal 700 1em/4em Arial,sans-serif;
+  height: 8vw;
+  font: normal normal 700 1.5em/8vw Arial,sans-serif;
+  font-size: 3vw;
   overflow: hidden;
-  width: 200px;
+  width: 31%;
   background-color: #3b5998;
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 7%;
+  margin-top: 5%;
+  margin-bottom: 3%;
   position:relative;
 }
 
@@ -91,5 +93,5 @@ textarea {
 }
 
 .blue-btn:hover .first-link{
-  margin-top: -4em;
+  margin-top: -8vw;
 }

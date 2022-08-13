@@ -11,7 +11,6 @@ html, head, body {
 }
 body {
 	overflow-x: hidden;
-	background-image: url("Background.png");
     background-size: 100%;
     background-color: #0f100f;
     background-repeat: no-repeat;
@@ -37,8 +36,8 @@ textarea {
   }
 
 .ContinueWith {
-    height: 50%;
-    width: 15%;
+    height: 27vw;
+    width: 18vw;
     padding: 0%; 
     border-radius: 10px;
     border-color: #141514;
@@ -50,3 +49,22 @@ textarea {
     position:relative;
 }
 
+.registerbtn {
+  width: 12vw;
+  height: 2.4vw;
+  margin-top: 1vw;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+  color: white;
+  font-size: 1.2vw;
+}
+
+.Create {
+  width: 12vw;
+  height: 5vw;
+  margin-top: 1.2vw;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+  color: white;
+  font-size: 1.2vw;
+}

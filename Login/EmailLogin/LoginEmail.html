@@ -7,16 +7,15 @@
 <body>
 <div class="Container">
     <div class="ContinueWith">
-    <h1 style="margin-top:0px; font-size: 50px; color:white">Sing In</h1>
-    <hr style="border-color: #141514; margin-top: -7%;">
-    <br><br><label for="email" style="font-size: 35px; color:white"><b>Email</b></label><br>
-    <input type="text" placeholder="Enter your E-mail adress" name="email" id="email" required><br><br><br>
+    <h1 style="margin-top:0px; font-size: 3.5vw; color:white">Login</h1>
+    <hr style="border-color: #141514; margin-top: -7%;"><br><br>
+    <input type="text" placeholder="Email adress" name="email" id="email" style="height:2vw; font-size: 1vw; width: 12vw; margin-top: 0vw; background-color: #141514; text-align: center; border-color: #141514; color: white;" required><br><br><br>
 
-    <label for="password" style="font-size: 35px; color:white"><b>Password</b></label><br>
-    <input type="password" placeholder="Enter your password" name="psq" id="psw" required><br><br><br>
 
-    <button id="sumbitData" name="submitData" class="registerbtn">Sing In</button><br>
-    <a style="font-size: 30px;" href="../EmailRegister/RegisterEmail.html">Create an account</a>
+    <input type="password" placeholder="Password" name="psq" id="psw" style="height:2vw; font-size: 1vw; width: 12vw; margin-top: 0vw; background-color: #141514; text-align: center; border-color: #141514; color: white;"  required><br><br><br>
+
+    <a style="font-size: 30px;" href="../EmailRegister/RegisterEmail.html"><button class="Create">Create new account</button></a><br>
+    <button id="sumbitData" name="submitData" class="registerbtn">Login</button><br>
     </div>      
 </div>
 </body>
@@ -77,7 +76,22 @@
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    alert(errorMessage);
+    if(errorMessage == "Firebase: Error (auth/invalid-email).") 
+            document.getElementById("email").style.borderColor = "red";
+            document.getElementById("email").value = "";
+            document.getElementById("email").placeholder ="Invalid email adress";
+    if(errorMessage == "Firebase: Error (auth/user-not-found).")
+            document.getElementById("email").style.borderColor = "red";
+            document.getElementById("email").value = "";
+            document.getElementById("email").placeholder ="Email adress not found";
+    if(errorMessage == "Firebase: Error (auth/wrong-password).")
+            document.getElementById("psw").style.borderColor = "red";
+            document.getElementById("psw").value = "";
+            document.getElementById("psw").placeholder ="Wrong password";
+    if(errorMessage == "Firebase: Password should be at least 6 characters (auth/weak-password).")
+             alert("Parola prea slaba");
+    if(errorMessage == "Firebase: Error (auth/email-already-in-use).")
+             alert("Email deja in folosinta");
   });
   });
 </script>

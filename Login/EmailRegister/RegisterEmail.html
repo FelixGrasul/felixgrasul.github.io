@@ -7,15 +7,15 @@
 <body>
 <div class="Container">
     <div class="ContinueWith">
-    <h1 style="margin-top:0px; font-size: 50px; color:white">Register</h1>
-    <hr style="border-color: #141514; margin-top: -7%;">
-    <br><br><label for="email" style="font-size: 35px; color:white"><b>Email</b></label><br>
-    <input type="text" placeholder="Enter your E-mail adress" name="email" id="email" required><br><br><br>
+    <h1 style="margin-top:0px; font-size: 3.5vw; color:white">Register</h1>
+    <hr style="border-color: #141514; margin-top: -7%;"><br><br>
+    <input type="text" placeholder="Email adress" name="email" id="email" style="height:2vw; font-size: 1vw; width: 12vw; margin-top: 0vw; background-color: #141514; text-align: center; border-color: #141514; color: white;" required><br><br><br>
 
-    <label for="password" style="font-size: 35px; color:white"><b>Password</b></label><br>
-    <input type="password" placeholder="Enter your password" name="psq" id="psw" required><br><br><br>
 
+    <input type="password" placeholder="Password" name="psq" id="psw" style="height:2vw; font-size: 1vw; width: 12vw; margin-top: 0vw; background-color: #141514; text-align: center; border-color: #141514; color: white;"  required><br><br><br>
+    <a style="font-size: 30px;" href="../EmailLogin/LoginEmail.html"><button class="Create">Already have an account?<br>Login</button></a><br>
     <button type="button" id="sumbitData" name="submitData" class="registerbtn">Register</button>
+
     </div>      
 </div>
 </html>
@@ -75,8 +75,16 @@
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            // ..
-            alert(errorMessage);
+            if(errorMessage == "Firebase: Error (auth/invalid-email).") 
+             alert("Nu e bun email-ul");
+            if(errorMessage == "Firebase: Error (auth/user-not-found).")
+             alert("Nu exista email-ul in baza de date");
+            if(errorMessage == "Firebase: Error (auth/wrong-password).")
+             alert("Parola gresita");
+            if(errorMessage == "Firebase: Password should be at least 6 characters (auth/weak-password).")
+             alert("Parola prea slaba");
+            if(errorMessage == "Firebase: Error (auth/email-already-in-use).")
+             alert("Email deja in folosinta");
         });
     });
 </script>

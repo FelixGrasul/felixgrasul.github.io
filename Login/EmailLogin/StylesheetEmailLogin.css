@@ -37,8 +37,8 @@ textarea {
 }
 
 .ContinueWith {
-height: 31vw;
-width: 18vw;
+  height: 34vw;
+  width: 18vw;
   padding: 0%; 
   border-radius: 10px;
   border-color: #141514;
@@ -47,7 +47,7 @@ width: 18vw;
   margin-top: 9vw;
   margin-right: auto;
   margin-bottom: auto;
-  position:relative;
+  position:absolute;
 }
 
 .registerbtn {
@@ -63,8 +63,8 @@ width: 18vw;
 
 .Create {
   width: 12vw;
-  margin-top: -1vw;
-  height: 3.3vw;
+  margin-top: -3vw;
+  height: 4.8vw;
   background-color: #1a1a1a;
   border-color: #1a1a1a;
   color: white;

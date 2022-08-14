@@ -24,29 +24,29 @@ textarea {
 }
 
 .Container {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    margin: auto;
-    padding: 0%;
-    text-align:center; 
-    width: 100%;
-    position: absolute;
-  }
+  width: 1vw;
+  height: 20vw;
+  left: auto;
+  top: 0%;
+  right: auto;
+  margin: auto;
+  padding: 0%;
+  text-align:center; 
+  position: absolute;
+}
 
 .ContinueWith {
-    height: 27vw;
-    width: 18vw;
-    padding: 0%; 
-    border-radius: 10px;
-    border-color: #141514;
-    border-style: solid;
-    margin-left: auto;
-    margin-top: 12%;
-    margin-right: auto;
-    margin-bottom: auto;
-    position:relative;
+height: 28vw;
+width: 18vw;
+  padding: 0%; 
+  border-radius: 10px;
+  border-color: #141514;
+  border-style: solid;
+  margin-left: 40vw;
+  margin-top: 9vw;
+  margin-right: auto;
+  margin-bottom: auto;
+  position:relative;
 }
 
 .registerbtn {
@@ -62,7 +62,6 @@ textarea {
 .Create {
   width: 12vw;
   height: 5vw;
-  margin-top: 1.2vw;
   background-color: #1a1a1a;
   border-color: #1a1a1a;
   color: white;

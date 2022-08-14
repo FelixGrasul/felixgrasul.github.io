@@ -75,16 +75,30 @@
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            if(errorMessage == "Firebase: Error (auth/invalid-email).") 
-             alert("Nu e bun email-ul");
-            if(errorMessage == "Firebase: Error (auth/user-not-found).")
-             alert("Nu exista email-ul in baza de date");
-            if(errorMessage == "Firebase: Error (auth/wrong-password).")
-             alert("Parola gresita");
-            if(errorMessage == "Firebase: Password should be at least 6 characters (auth/weak-password).")
-             alert("Parola prea slaba");
-            if(errorMessage == "Firebase: Error (auth/email-already-in-use).")
-             alert("Email deja in folosinta");
+            if(errorMessage == "Firebase: Error (auth/invalid-email).") {
+                    document.getElementById("email").style.borderColor = "red";
+                    document.getElementById("email").value = ""; 
+                    document.getElementById("email").placeholder ="Invalid email adress"; }
+            if(errorMessage == "Firebase: Error (auth/user-not-found).") {
+                    document.getElementById("email").style.borderColor = "red";
+                    document.getElementById("email").value = "";
+                    document.getElementById("email").placeholder ="Email adress not found"; }
+            if(errorMessage == "Firebase: Error (auth/wrong-password).") {
+                    document.getElementById("psw").style.borderColor = "red";
+                    document.getElementById("psw").value = "";
+                    document.getElementById("psw").placeholder ="Wrong password"; }
+            if(errorMessage == "Firebase: Password should be at least 6 characters (auth/weak-password).") {
+                    document.getElementById("psw").style.borderColor = "red";
+                    document.getElementById("psw").value = "";
+                    document.getElementById("psw").placeholder ="Password too short"; }
+            if(errorMessage == "Firebase: Error (auth/email-already-in-use).") {
+                    document.getElementById("email").style.borderColor = "red";
+                    document.getElementById("email").value = "";
+                    document.getElementById("email").placeholder ="Email used"; }
+            if(errorMessage == "Firebase: Error (auth/internal-error).") {
+                    document.getElementById("psw").style.borderColor = "red";
+                    document.getElementById("psw").value = "";
+                    document.getElementById("psw").placeholder ="Invalid password"; }
         });
     });
 </script>
